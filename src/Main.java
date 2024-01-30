@@ -1,23 +1,29 @@
-// Example of a simple class
-class Car {
+// Example of a simple class with a constructor
+class Person {
     // Attributes
-    String make;
-    String model;
-    int year;
+    String name;
+    int age;
 
-    // Methods
-    void start() {
-        System.out.println("The car is starting.");
+    // Constructor
+    public Person(String name, int age) {
+        this.name = name;
+        this.age = age;
     }
 
-    void drive() {
-        System.out.println("The car is moving.");
+    // Method
+    void introduce() {
+        System.out.println("Hello, my name is " + name + " and I am " + age + " years old.");
     }
 }
 
-// Example of encapsulation
+// Example of encapsulation with a constructor
 class BankAccount {
     private double balance; // Encapsulated attribute
+
+    // Constructor
+    public BankAccount(double initialBalance) {
+        this.balance = initialBalance;
+    }
 
     // Encapsulated method to access the balance
     public double getBalance() {
@@ -40,19 +46,32 @@ class BankAccount {
 
 // Example of inheritance
 class Animal {
-    void eat() {
-        System.out.println("Animal is eating.");
+    void makeSound() {
+        System.out.println("Generic animal sound.");
     }
 }
 
-class Dog extends Animal {
-    void bark() {
-        System.out.println("Dog is barking.");
+class Cat extends Animal {
+    // Constructor
+    public Cat() {
+        System.out.println("A new cat is created.");
+    }
+
+    // Additional method specific to Cat
+    void meow() {
+        System.out.println("Meow!");
+    }
+
+    // Overridden method
+    @Override
+    void makeSound() {
+        System.out.println("Cat purring.");
     }
 }
 
 // Example of polymorphism (method overloading)
 class Calculator {
+    // Method overloading
     int add(int a, int b) {
         return a + b;
     }
@@ -70,6 +89,7 @@ class Shape {
 }
 
 class Circle extends Shape {
+    // Overridden method
     @Override
     void draw() {
         System.out.println("Drawing a circle.");
@@ -77,32 +97,42 @@ class Circle extends Shape {
 }
 
 // Example of abstraction using an abstract class
-abstract class AbstractShape {
-    abstract void draw();
+abstract class Vehicle {
+    // Abstract method
+    abstract void start();
+
+    // Concrete method
+    void stop() {
+        System.out.println("Vehicle is stopping.");
+    }
 }
 
-class ConcreteCircle extends AbstractShape {
+class Car extends Vehicle {
+    // Implementation of the abstract method
     @Override
-    void draw() {
-        System.out.println("Drawing a concrete circle.");
+    void start() {
+        System.out.println("Car is starting.");
     }
 }
 
 // Example of interface
 interface ShapeInterface {
+    // Methods in an interface are implicitly public and abstract
     void draw();
+
     double calculateArea();
 }
 
-class CircleWithInterface implements ShapeInterface {
+class Rectangle implements ShapeInterface {
+    // Implementation of interface methods
     @Override
     public void draw() {
-        System.out.println("Drawing a circle.");
+        System.out.println("Drawing a rectangle.");
     }
 
     @Override
     public double calculateArea() {
-        // Implementation for calculating the area of a circle
+        // Implementation for calculating the area of a rectangle
         return 0;
     }
 }
@@ -115,33 +145,40 @@ enum Day {
 // Main class with the main method
 public class Main {
     public static void main(String[] args) {
-        // Create objects and demonstrate functionality here
-        Car myCar = new Car();
-        myCar.start();
-        myCar.drive();
+        // Example usage of each concept and constructor
 
-        BankAccount myAccount = new BankAccount();
-        myAccount.deposit(1000);
-        System.out.println("Current balance: $" + myAccount.getBalance());
+        // Constructor and encapsulation example
+        Person person = new Person("John", 25);
+        person.introduce();
 
-        Dog myDog = new Dog();
-        myDog.eat();
-        myDog.bark();
+        BankAccount account = new BankAccount(1000);
+        System.out.println("Initial balance: $" + account.getBalance());
 
-        Calculator myCalculator = new Calculator();
-        System.out.println("Sum (int): " + myCalculator.add(5, 7));
-        System.out.println("Sum (double): " + myCalculator.add(3.5, 2.5));
+        // Inheritance and polymorphism example
+        Cat cat = new Cat();
+        cat.meow();
+        cat.makeSound(); // Polymorphic behavior
 
-        Circle myCircle = new Circle();
-        myCircle.draw();
+        // Method overloading example
+        Calculator calculator = new Calculator();
+        System.out.println("Sum (int): " + calculator.add(5, 7));
+        System.out.println("Sum (double): " + calculator.add(3.5, 2.5));
 
-        ConcreteCircle concreteCircle = new ConcreteCircle();
-        concreteCircle.draw();
+        // Method overriding example
+        Circle circle = new Circle();
+        circle.draw(); // Polymorphic behavior
 
-        CircleWithInterface circleWithInterface = new CircleWithInterface();
-        circleWithInterface.draw();
-        System.out.println("Area: " + circleWithInterface.calculateArea());
+        // Abstraction using an abstract class
+        Car car = new Car();
+        car.start();
+        car.stop();
 
+        // Interface example
+        Rectangle rectangle = new Rectangle();
+        rectangle.draw();
+        System.out.println("Area: " + rectangle.calculateArea());
+
+        // Enum example
         Day today = Day.MONDAY;
         System.out.println("Today is " + today);
     }
