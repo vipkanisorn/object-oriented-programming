@@ -12,4 +12,4 @@ Polymorphism (ความหลากหลาย)
 Abstraction
 
  - Abstract Class (เรียกใช้ Abstract Class ไม่ได้ ต้องเรียกใช้คลาสลูก)
- - Interface
+ - Interface (ประกาศ method โดยที่ไม่มี logic --> logic จะไปเขียนใน class ลูก)
