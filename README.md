@@ -1,4 +1,11 @@
 # object-oriented-programming
 
-Abstract Class
-Interface
+class
+Constructions
+encapsulation
+inheritance
+polymorphism
+
+abstraction
+  Abstract Class
+  Interface
