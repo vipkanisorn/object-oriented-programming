@@ -1,11 +1,15 @@
-# object-oriented-programming
+# OOP Concept
 
-class
-Constructions
-encapsulation
-inheritance
-polymorphism
+Encapsulation (การห่อหุ้ม)
 
-abstraction
-  Abstract Class
-  Interface
+ - private
+ - getter, setter
+
+Inheritance (การสืบทอด, มรดก)
+
+Polymorphism (ความหลากหลาย)
+
+Abstraction
+
+ - Abstract Class
+ - Interface
