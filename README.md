@@ -11,5 +11,5 @@ Polymorphism (ความหลากหลาย)
 
 Abstraction
 
- - Abstract Class
+ - Abstract Class (เรียกใช้ Abstract Class ไม่ได้ ต้องเรียกใช้คลาสลูก)
  - Interface
